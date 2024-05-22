@@ -38,7 +38,9 @@ def plot_preds(train, test, pred_dict, model_name, show_samples=False):
         nll = pred_dict['NLL/D']
         if nll is not None:
             plt.text(0.03, 0.85, f'NLL/D: {nll:.2f}', transform=plt.gca().transAxes, bbox=dict(facecolor='white', alpha=0.5))
-    plt.show()
+    # plt.show()
+    plt.savefig(f'res_{model_name}.png')
+    plt.close()
 
 
 
@@ -110,8 +112,9 @@ model_hypers = {
 model_predict_fns = {
     #'LLMA2': get_llmtime_predictions_data,
     #'mistral': get_llmtime_predictions_data,
+    'LLMTime GPT-3.5': get_llmtime_predictions_data,
     #'LLMTime GPT-4': get_llmtime_predictions_data,
-    'mistral-api-tiny': get_llmtime_predictions_data
+    # 'mistral-api-tiny': get_llmtime_predictions_data,
 }
 
 
